@@ -1,0 +1,63 @@
+<html>
+    <head>
+
+
+        <style>
+.card{
+    width:200px;
+    height:200px;
+    border: 5px solid rgb(24, 231, 38);
+}
+
+        </style>
+    </head>
+    <body>
+        <h1>my playlist sorter</h1>
+        <div class="card">
+         <div id="songs"></div>      
+
+<button onclick="AtoZ()">AtoZ</button>
+<button onclick="ZtoA()">ZtoA</button>
+</div>
+
+
+
+        <div class="card">
+            <div id="plays"></div>
+           <button onclick="asc()">ascending: </button>
+            <button onclick="desc()">Descending: </button>
+        </div>
+
+        <script>
+var songs = ['zoom','bounce','glow','rush',"spark"]
+document.getElementById("songs").innerHTML = "songs:" + songs
+
+var plays = [320,67,983,23,597]
+
+document.getElementById("plays").innerHTML = "plays:" + plays
+ plays.sort(function(a,b) {return a - b;});
+ plays.sort(function(a,b) {return b - a;});
+
+ function asc(){
+    plays.sort(function(a,b){ return a - b;});
+    document.getElementById("plays").innerHTML = "Ascending: " + plays
+ }
+
+ function desc(){
+    plays.sort(function(a,b){ return b - a;});
+    document.getElementById("plays").innerHTML = "Descending: " + plays}
+
+ function AtoZ(){
+ songs.sort();
+ document.getElementById("songs").innerHTML = "A to Z;" + songs 
+ }
+
+ function ZtoA(){
+ songs.sort();
+ songs.reverse();
+ document.getElementById("songs").innerHTML = "Z to A;" + songs 
+ }
+ 
+        </script>
+    </body>
+</html>
